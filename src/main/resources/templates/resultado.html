@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}"></title>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+	<h2 th:text="${titulo}"></h2>
+
+
+<table class="table table-striped-columns">
+  <thead>
+    <tr>
+      <th scope="col">Nombre Cliente</th>
+      <th scope="col" th:text="${usuario.nombreCliente}"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">RUT</th>
+      <td th:text="${usuario.rut}"></td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Número tarjeta</th>
+      <td th:text="${usuario.tarjetanum}"></td>
+     
+    </tr>
+    <tr>
+      <th scope="row">Código Postal</th>
+      <td th:text="${usuario.zipcode}"></td>
+    </tr>
+    <tr>
+      <th scope="row">Mes-Año</th>
+      <td th:text="${usuario.fecha}"></td>
+    </tr>
+    
+  </tbody>
+  
+</table>
+
+</body>
+</html>

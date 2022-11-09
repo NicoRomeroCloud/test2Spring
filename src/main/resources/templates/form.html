@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}"></title>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+	<h2 th:text="${titulo}"></h2>
+	<form th:action="@{/form}" method="post">
+
+<div>
+
+			<label for="nombreCliente">Nombre Cliente: </label>
+			<div>
+				<input type="text" name="nombreCliente" id="nombreCliente">
+			</div>
+			<div th:if="${error != null && error.containsKey('nombreCliente')}" th:text="${error.nombreCliente}"></div>
+
+			<label for="rut">RUT: </label>
+			<div>
+				<input type="text" name="rut" id="rut">
+			</div>
+			<div th:if="${error != null && error.containsKey('rut')}" th:text="${error.rut}"></div>
+		
+				
+			<label for="tarjetanum">Número de tarjeta: </label>
+			<div>
+				<input type="text" name="tarjetanum" id="tarjetanum">
+			</div>
+			<div th:if="${error != null && error.containsKey('tarjetanum')}" th:text="${error.tarjetanum}"></div>
+
+			<label for="zipcode">Código Postal: </label>
+			<div>
+				<input type="text" name="zipcode" id="zipcode">
+			</div>
+			<div th:if="${error != null && error.containsKey('zipcode')}" th:text="${error.zipcode}"></div>
+
+			<label for="fecha">Fecha mes-año: </label>
+			<div>
+				<input type="text" name="fecha" id="fecha">
+			</div>
+			<div th:if="${error != null && error.containsKey('fecha')}" th:text="${error.fecha}"></div>
+
+
+			<div>
+				<input type="submit" value="Enviar">
+			</div>
+
+		</div>
+
+	</form>
+
+</body>
+</html>
