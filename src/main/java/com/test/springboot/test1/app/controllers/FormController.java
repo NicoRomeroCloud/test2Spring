@@ -14,12 +14,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.test.springboot.test1.app.models.domain.Usuario;
 import com.test.springboot.test1.app.validators.RunValidation;
+import com.test.springboot.test1.app.validators.TarjetaValidation;
 
 @Controller
 public class FormController {
 
 	@Autowired
 	RunValidation validator;
+	
+	@Autowired
+	TarjetaValidation validator2;
 	
 	@GetMapping({ "/index", "/", "/form" })
 	public String form(Model model) {
@@ -35,6 +39,8 @@ public class FormController {
 		System.out.println(result);
 		model.addAttribute("titulo", "Reprobé!");
 		
+		validator2.validate(usuario, result);
+		
 		if (result.hasErrors()) {
 			Map<String, String> errores = new HashMap<>();
 			result.getFieldErrors().forEach(err -> {
@@ -43,6 +49,10 @@ public class FormController {
 				if(err.getField().equalsIgnoreCase("Rut")) {
 		            model.addAttribute("msg", err.getDefaultMessage());
 		            System.out.println("entro");
+		        }
+				if(err.getField().equalsIgnoreCase("tarjetanum")) {
+		            model.addAttribute("msg2", err.getDefaultMessage());
+		            System.out.println("entro2");
 		        }
 			});
 			model.addAttribute("error", errores);

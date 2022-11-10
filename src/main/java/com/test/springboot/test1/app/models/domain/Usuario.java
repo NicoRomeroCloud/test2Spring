@@ -2,6 +2,7 @@ package com.test.springboot.test1.app.models.domain;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 public class Usuario {
 
@@ -17,6 +18,7 @@ public class Usuario {
 	private String tarjetanum;
 	
 	@NotEmpty
+	@Size(max = 9, min = 7)
 	private String zipcode;
 	
 	@NotEmpty

@@ -29,7 +29,8 @@
 			<div>
 				<input type="text" name="tarjetanum" id="tarjetanum">
 			</div>
-			<div th:if="${error != null && error.containsKey('tarjetanum')}" th:text="${error.tarjetanum}"></div>
+			<div th:if="${msg2 != null}" th:text="${msg2}"></div>
+			
 
 			<label for="zipcode">Código Postal: </label>
 			<div>
