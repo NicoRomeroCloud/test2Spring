@@ -32,14 +32,20 @@ public class FormController {
 	@PostMapping("/form")
 	public String recibeForm( Model model, @Valid Usuario usuario, BindingResult result) {
 		validator.validate(usuario, result);
+		System.out.println(result);
 		model.addAttribute("titulo", "Reprobé!");
-		Map<String, String> errores = new HashMap<>();
-		result.getFieldErrors().forEach(err -> {
-			errores.put(err.getField(),
-					"El campo ".concat(err.getField()).concat(" ").concat(err.getDefaultMessage()));
-		});
-		model.addAttribute("error", errores);
+		
 		if (result.hasErrors()) {
+			Map<String, String> errores = new HashMap<>();
+			result.getFieldErrors().forEach(err -> {
+				errores.put(err.getField(),
+						"El campo ".concat(err.getField()).concat(" ").concat(err.getDefaultMessage()));
+				if(err.getField().equalsIgnoreCase("Rut")) {
+		            model.addAttribute("msg", err.getDefaultMessage());
+		            System.out.println("entro");
+		        }
+			});
+			model.addAttribute("error", errores);
 			
 			return "form";
 		}
@@ -60,7 +66,7 @@ public class FormController {
 //				break;
 //			
 //		}
-		return "form";
+		return "resultado";
 		
 //		 String estado = "";
 //

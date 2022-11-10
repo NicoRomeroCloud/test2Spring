@@ -22,8 +22,8 @@
 			<div>
 				<input type="text" name="rut" id="rut">
 			</div>
-			<div th:if="${error != null && error.containsKey('rut')}" th:text="${error.rut}"></div>
-		
+			
+			<div th:if="${msg != null}" th:text="${msg}"></div>
 				
 			<label for="tarjetanum">Número de tarjeta: </label>
 			<div>

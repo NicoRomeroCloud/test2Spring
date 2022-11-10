@@ -10,7 +10,7 @@ public class Usuario {
 	@NotEmpty
 	private String nombreCliente;
 	
-	@Pattern(regexp= "^[0-9]+-[0-9kK]{1}$",message= "No sigue el formato establecido de RUN")
+	@Pattern(regexp= "^(\\d{2}\\.\\d{3}\\.\\d{3}-)([a-zA-Z]{1}$|\\d{1}$)" ,message= "No sigue el formato establecido de RUN")
 	private String rut;
 	
 	@Pattern(regexp = "[0-9]{4}[-][0-9]{4}[-][0-9]{4}[-][0-9]{4}",message= "No sigue el formato establecido de tarjeta") 
