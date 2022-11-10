@@ -65,5 +65,22 @@ public class Usuario {
 	public void setRut(String rut) {
 		this.rut = rut;
 	}
+	
+	public Usuario () {}
+
+
+	public Usuario(@NotEmpty String nombreCliente,
+			@Pattern(regexp = "^[0-9]+-[0-9kK]{1}$", message = "No sigue el formato establecido de RUN") String rut,
+			@Pattern(regexp = "[0-9]{4}[-][0-9]{4}[-][0-9]{4}[-][0-9]{4}", message = "No sigue el formato establecido de tarjeta") String tarjetanum,
+			@NotEmpty String zipcode, @NotEmpty String fecha) {
+		super();
+		this.nombreCliente = nombreCliente;
+		this.rut = rut;
+		this.tarjetanum = tarjetanum;
+		this.zipcode = zipcode;
+		this.fecha = fecha;
+	}
+	
+	
 
 }

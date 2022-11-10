@@ -1,6 +1,8 @@
 package com.test.springboot.test1.app.validators;
 
+
 import org.springframework.stereotype.Component;
+
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
@@ -23,6 +25,10 @@ public class RunValidation implements Validator{
 		Usuario usuario = (Usuario) target;
 		
 		ValidationUtils.rejectIfEmpty(errors,"Rut", null, "No puede estar vacio");
+		
+		if(usuario.getRut()==null || usuario.getRut() == "") {
+			return;
+		}
 		
 		if (!validarRut(usuario.getRut()))
 			errors.rejectValue("Rut", null, "Rut no valido");

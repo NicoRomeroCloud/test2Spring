@@ -30,8 +30,8 @@ public class FormController {
 	}
 
 	@PostMapping("/form")
-	public String recibeForm(@Valid Usuario usuario, BindingResult result, Model model) {
-		//validator.validate(usuario.getRut(), result);
+	public String recibeForm( Model model, @Valid Usuario usuario, BindingResult result) {
+		validator.validate(usuario, result);
 		model.addAttribute("titulo", "Reprobé!");
 		Map<String, String> errores = new HashMap<>();
 		result.getFieldErrors().forEach(err -> {
